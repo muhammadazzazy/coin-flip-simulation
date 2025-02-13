@@ -2,11 +2,11 @@ import random
 
 
 def main() -> None:
-    outcomes = ['head', 'tail']
-    counts = {outcomes[0]: 0, outcomes[1]: 0}
+    outcomes: list[str] = ['head', 'tail']
+    counts: dict[str: int] = {outcomes[0]: 0, outcomes[1]: 0}
     print('Welcome to the 🪙 Flip Simulator!')
     while True:
-        user_input = input('Flip a coin? (Y/n) ')
+        user_input: str = input('Flip a coin? (Y/n) ')
         if user_input.lower() == 'y':
             outcome: str = random.choice(outcomes)
             print(f'{outcome.capitalize()}')
