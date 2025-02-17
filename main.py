@@ -1,12 +1,26 @@
 import random
+from sys import exit
+
+
+def display_info(counts: dict[str: int]) -> None:
+    print(f'\nNumber of heads: {counts['head']}')
+    print(f'Number of tails: {counts['tail']}')
+    print(f'Number of coin flips: {sum(counts.values())}')
 
 
 def main() -> None:
+    print('Welcome to The 🪙 Flip Simulator!')
     outcomes: list[str] = ['head', 'tail']
     counts: dict[str: int] = {outcomes[0]: 0, outcomes[1]: 0}
-    print('Welcome to The 🪙 Flip Simulator!')
+    exit_message: str = 'Exiting program...'
     while True:
-        user_input: str = input('Flip a coin? (Y/n) ')
+        try:
+            user_input: str = input('Flip a coin? (Y/n) ')
+        except KeyboardInterrupt:
+            display_info(counts)
+            print(exit_message)
+            exit()
+
         if user_input.lower() == 'y':
             outcome: str = random.choice(outcomes)
             print(f'{outcome.capitalize()}')
@@ -15,11 +29,7 @@ def main() -> None:
             else:
                 counts[outcomes[1]] += 1
         else:
-            print(f'Number of heads: {counts[outcomes[0]]}')
-            print(f'Number of tails: {counts[outcomes[1]]}')
-            print(
-                f'Number of coin flips: {counts[outcomes[0]]+counts[outcomes[1]]}')
-            print('Thanks for trying my program!')
+            display_info(counts)
             exit()
 
 
