@@ -2,7 +2,7 @@ import random
 from sys import exit
 
 
-def display_info(counts: dict[str: int]) -> None:
+def display(counts: dict[str: int]) -> None:
     print(f'\nNumber of heads: {counts['head']}')
     print(f'Number of tails: {counts['tail']}')
     print(f'Number of coin flips: {sum(counts.values())}')
@@ -17,7 +17,7 @@ def main() -> None:
         try:
             user_input: str = input('Flip a coin? (Y/n) ')
         except KeyboardInterrupt:
-            display_info(counts)
+            display(counts)
             print(exit_message)
             exit()
 
@@ -29,7 +29,7 @@ def main() -> None:
             else:
                 counts[outcomes[1]] += 1
         else:
-            display_info(counts)
+            display(counts)
             exit()
 
 
