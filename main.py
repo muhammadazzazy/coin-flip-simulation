@@ -11,7 +11,7 @@ def display(counts: dict[str: int]) -> None:
 def main() -> None:
     print('Welcome to The 🪙 Flip Simulator!')
     outcomes: list[str] = ['head', 'tail']
-    counts: dict[str: int] = {outcomes[0]: 0, outcomes[1]: 0}
+    counts: dict[str, int] = {outcomes[0]: 0, outcomes[1]: 0}
     exit_message: str = 'Exiting program...'
     while True:
         try:
